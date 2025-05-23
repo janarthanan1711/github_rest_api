@@ -18,32 +18,31 @@ class ConnectivityService {
   Connectivity get connectivity => _connectivity;
 
   void initialize() {
-    _connectivity.onConnectivityChanged
-        .listen((List<ConnectivityResult> result) {
+    _connectivity.onConnectivityChanged.listen((
+      List<ConnectivityResult> result,
+    ) {
       String message;
       if (result.first == ConnectivityResult.mobile) {
         message = 'Connected to Mobile Network';
-        scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(
-          content: Text(
-            message,
-            style: const TextStyle(color: Colors.white),
+        scaffoldMessengerKey.currentState?.showSnackBar(
+          SnackBar(
+            content: Text(message, style: const TextStyle(color: Colors.white)),
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
           ),
-          backgroundColor: Colors.green,
-          duration: const Duration(seconds: 2),
-        ));
+        );
         scaffoldMessengerKey.currentState?.clearSnackBars();
         // navigatorKey.currentState?.pop();
         _closeDialogIfOpen();
       } else if (result.first == ConnectivityResult.wifi) {
         message = 'Connected to WiFi';
-        scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(
-          content: Text(
-            message,
-            style: const TextStyle(color: Colors.white),
+        scaffoldMessengerKey.currentState?.showSnackBar(
+          SnackBar(
+            content: Text(message, style: const TextStyle(color: Colors.white)),
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
           ),
-          backgroundColor: Colors.green,
-          duration: const Duration(seconds: 2),
-        ));
+        );
         scaffoldMessengerKey.currentState?.clearSnackBars();
         // navigatorKey.currentState?.pop();
         _closeDialogIfOpen();
@@ -64,7 +63,7 @@ class ConnectivityService {
     if (navigatorKey.currentState?.canPop() ?? false) {
       navigatorKey.currentState?.pop();
     } else {
-      printWrapped("No routes to pop.");
+      // printWrapped("No routes to pop.");
     }
   }
 
@@ -91,7 +90,7 @@ class ConnectivityService {
                   width: size.width * 0.3,
                 ),
                 const SizedBox(height: 10),
-                const Text('Please check your internet settings.',maxLines: 2,),
+                const Text('Please check your internet settings.', maxLines: 2),
               ],
             ),
           ),

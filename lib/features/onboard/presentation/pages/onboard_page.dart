@@ -24,6 +24,7 @@ class _OnboardPageState extends State<OnboardPage> {
           if (state is LoaderSuccessState) {
             WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
               Future.delayed(const Duration(seconds: 2), () {
+                if (!context.mounted) return;
                 if (!state.loginStatus) {
                   Navigator.pushNamedAndRemoveUntil(
                     context,

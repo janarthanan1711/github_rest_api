@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:github_repo/common/local_data.dart';
+import 'package:github_repo/db/local_db.dart';
 
 part 'onboard_event.dart';
 part 'onboard_state.dart';

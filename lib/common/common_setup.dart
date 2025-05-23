@@ -1,14 +1,18 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_repo/di/locator.dart';
+
 Future<void> commonSetup() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  await init();
   // Bloc.observer = const SimpleBlocObserver();
 }
-
 
 class SimpleBlocObserver extends BlocObserver {
   const SimpleBlocObserver();
@@ -38,7 +42,8 @@ class SimpleBlocObserver extends BlocObserver {
   ) {
     super.onTransition(bloc, transition);
     debugPrint(
-        'onTransition -- bloc: ${bloc.runtimeType}, transition: $transition');
+      'onTransition -- bloc: ${bloc.runtimeType}, transition: $transition',
+    );
   }
 
   @override
