@@ -12,11 +12,20 @@ class AppSharedPreference {
     return await prefs.setString('token', token);
   }
 
-  //get
+  static Future setUserName(String token) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return await prefs.setString('userName', token);
+  }
 
+  //get
   static Future<String> getToken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('token') ?? '';
+  }
+
+  static Future<String> getUsername() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('userName') ?? '';
   }
 
   static Future getLoginStatus() async {

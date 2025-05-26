@@ -19,5 +19,11 @@ class RepoRepositoryImpl implements GithubRepository {
       );
     }).toList();
   }
+
+  @override
+    @override
+  Future<String> getUsername() async {
+    return await remoteDataSource.getAuthenticatedUsername(); // <-- Here
+  }
 }
 

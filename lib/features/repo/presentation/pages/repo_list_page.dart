@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_repo/common/app_arguments.dart';
 import 'package:github_repo/features/branch/presentation/pages/branch_details.dart';
 
 import '../../application/repo_bloc.dart';
@@ -54,7 +55,12 @@ class RepoListPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => BranchDetailsPage(),
+                              builder:
+                                  (_) => BranchDetailsPage(
+                                    args: BranchDetailsPageArguments(
+                                      repoName: repo.name,
+                                    ),
+                                  ),
                             ),
                           );
                         },

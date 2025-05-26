@@ -22,6 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       final user = await getUserUseCase();
       if (user != null && user.token.isNotEmpty) {
+       
         emit(AuthAuthenticated(user.token));
       } else {
         emit(AuthUnauthenticated());
