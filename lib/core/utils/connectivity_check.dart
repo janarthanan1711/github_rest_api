@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/common.dart';
 import 'custom_loader.dart';
 
 final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
@@ -84,11 +83,6 @@ class ConnectivityService {
             width: size.width * 0.8,
             child: Column(
               children: [
-                Image.asset(
-                  AppImages.noInternet,
-                  height: size.height * 0.15,
-                  width: size.width * 0.3,
-                ),
                 const SizedBox(height: 10),
                 const Text('Please check your internet settings.', maxLines: 2),
               ],

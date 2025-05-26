@@ -25,9 +25,7 @@ class RepoDetailRemoteDataSourceImpl implements RepoDetailRemoteDataSource {
         'Accept': 'application/vnd.github.v3+json',
       },
     );
-    print(
-      "Getting branche details ----------->${response.data} ${response.statusCode} ${repoName}",
-    );
+
     if (response.statusCode == 200) {
       return (response.data as List)
           .map((json) => BranchModel.fromJson(json))
@@ -52,9 +50,6 @@ class RepoDetailRemoteDataSourceImpl implements RepoDetailRemoteDataSource {
       },
     );
 
-    print(
-      "Getting commit details ----------->${response.data} ${response.statusCode} ${repoName} ${branchName}",
-    );
 
     if (response.statusCode == 200) {
       return (response.data as List)

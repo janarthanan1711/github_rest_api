@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_repo/common/app_arguments.dart';
+import 'package:github_repo/common/app_colors.dart';
+import 'package:github_repo/core/utils/custom_appbar.dart';
+import 'package:github_repo/core/utils/custom_text.dart';
 import 'package:github_repo/features/branch/presentation/pages/branch_details.dart';
 
 import '../../application/repo_bloc.dart';
@@ -14,7 +17,11 @@ class RepoListPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => RepoBloc()..add(FetchRepositoriesEvent()),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Repositories')),
+        appBar: CustomAppBar(
+          title: "Repositories",
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
         body: BlocListener<RepoBloc, RepoState>(
           listener: (context, state) {
             if (state is RepoError) {
@@ -40,17 +47,22 @@ class RepoListPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 6,
                       ),
+                      color: AppColors.darkGrey,
                       elevation: 2,
                       child: ListTile(
-                        title: Text(
-                          repo.name,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        title: MyText(
+                          text: repo.name,
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
                         ),
-                        subtitle: Text(
-                          'Visibility: ${repo.isPrivate ? "Private" : "Public"}\nDefault branch: ${repo.defaultBranch}',
+                        subtitle: MyText(
+                          text:
+                              'Visibility: ${repo.isPrivate ? "Private" : "Public"}\nDefault branch: ${repo.defaultBranch}',
                         ),
                         isThreeLine: true,
-                        trailing: const Icon(Icons.chevron_right),
+                        trailing: const Icon(Icons.chevron_right, size: 35),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -69,7 +81,7 @@ class RepoListPage extends StatelessWidget {
                   },
                 );
               } else if (state is RepoError) {
-                return Center(child: Text('Error: ${state.message}'));
+                return Center(child: MyText(text: 'Error: ${state.message}'));
               }
               return const SizedBox.shrink();
             },

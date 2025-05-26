@@ -13,8 +13,6 @@ class RepoRemoteDataSourceImpl extends RepoRemoteDataSource {
         'Accept': 'application/vnd.github.v3+json',
       },
     );
-    print("GitHub Repos API Status: ${response.statusCode}");
-    print("GitHub Repos Response: ${response.data}");
     if (response.statusCode == 200) {
       return response.data;
     } else {

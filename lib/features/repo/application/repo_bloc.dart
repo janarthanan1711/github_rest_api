@@ -27,7 +27,7 @@ class RepoBloc extends Bloc<RepoEvent, RepoState> {
       final List<Repository> repos = await _fetchRepositories();
       final String username = await getUsername();
       await AppSharedPreference.setUserName(username);
-      print("Authenticated username: $username");
+    
 
       emit(RepoLoaded(repos));
     } catch (e) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_repo/common/app_images.dart';
 import 'package:github_repo/features/auth/presentation/pages/signin_page.dart';
 import 'package:github_repo/features/onboard/application/onboard_bloc.dart';
 import 'package:github_repo/features/repo/presentation/pages/repo_list_page.dart';
@@ -47,17 +48,17 @@ class _OnboardPageState extends State<OnboardPage> {
             return PopScope(
               canPop: false,
               child: Scaffold(
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 resizeToAvoidBottomInset: false,
                 body: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Image.asset(
-                      //   AppImages.loader,
-                      //   width: size.width * 0.51,
-                      //   height: size.height * 0.51,
-                      // ),
+                      Image.asset(
+                        AppImages.logo,
+                        width: size.width * 0.51,
+                        height: size.height * 0.51,
+                      ),
                     ],
                   ),
                 ),
