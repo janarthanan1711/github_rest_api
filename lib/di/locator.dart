@@ -13,7 +13,7 @@ import 'package:github_repo/features/repo/application/repo_bloc.dart';
 import 'package:github_repo/features/repo/application/usecases/get_repository.dart';
 import 'package:github_repo/features/repo/application/usecases/get_username.dart';
 import 'package:github_repo/features/repo/data/repo_impl/repo_impl.dart';
-import 'package:github_repo/features/repo/data/repo_impl/repository_impl.dart';
+import 'package:github_repo/features/repo/data/repository/repository_impl.dart';
 import 'package:github_repo/features/repo/data/repository/repo_data.dart';
 import 'package:github_repo/features/repo/domain/repositories/repos_support.dart';
 
